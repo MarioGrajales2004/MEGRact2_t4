@@ -59,7 +59,5 @@ Abrir: `http://localhost:8083/productos/lista`
 ### 5. Formulario procesado (producto nuevo "Webcam HD" en la lista)
 ![Formulario procesado](docs/img/05_formulario_procesado.png)
 
-### 6. Petición POST con JSON (`@RequestBody`, HTTP 201)
+### 6. Petición POST con JSON en Postman (`@RequestBody`, HTTP 201)
 ![POST JSON](docs/img/06_post_json.png)
-
-> Las capturas 1 a 5 son del navegador con la aplicación ejecutándose; la 6 es la petición `curl` y su respuesta. Si el docente exige Postman o Bruno, se puede reemplazar por una captura de esa herramienta.
