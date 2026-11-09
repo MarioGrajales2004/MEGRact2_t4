@@ -49,8 +49,8 @@
 	</dependencies>
 
 	<build>
-		<!-- El JAR final se llamará MGRact2_t4.jar -->
-		<finalName>MGRact2_t4</finalName>
+		<!-- El JAR final se llamará MEGRact2_t4.jar -->
+		<finalName>MEGRact2_t4</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

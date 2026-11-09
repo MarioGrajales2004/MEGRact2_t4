@@ -1,4 +1,4 @@
-# MGRact2_t4 — Actividad 2: Spring Boot MVC con Thymeleaf
+# MEGRact2_t4 — Actividad 2: Spring Boot MVC con Thymeleaf
 
 **Autor:** Mario Eduardo Grajales Ramírez
 **Tecnologías:** Java 17, Spring Boot 4.1.2, Maven, Thymeleaf, Tomcat embebido
@@ -36,8 +36,8 @@ La propiedad `app.desarrollador.nombre` se inyecta con `@Value` y se muestra en 
 
 ```bash
 ./mvnw spring-boot:run                      # desarrollo (puerto 8083)
-./mvnw clean package                        # genera target/MGRact2_t4.jar
-java -jar target/MGRact2_t4.jar             # ejecutar el JAR
+./mvnw clean package                        # genera target/MEGRact2_t4.jar
+java -jar target/MEGRact2_t4.jar             # ejecutar el JAR
 ```
 
 Abrir: `http://localhost:8083/productos/lista`
