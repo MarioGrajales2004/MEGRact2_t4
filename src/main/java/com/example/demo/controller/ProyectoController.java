@@ -22,7 +22,7 @@ public class ProyectoController {
     /** GET /api/proyecto -> texto plano identificando el proyecto. */
     @GetMapping("/proyecto")
     public String proyecto() {
-        return "MGR - Spring Boot Act 1 - Entorno Local OK";
+        return "MEGR - Spring Boot Act 1 - Entorno Local OK";
     }
 
     /** GET /api/estudiante -> objeto JSON (Map serializado por Jackson). */
