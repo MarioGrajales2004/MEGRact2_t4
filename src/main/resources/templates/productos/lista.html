@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        table { border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #999; padding: 6px 14px; text-align: left; }
+        th { background: #e8eef7; }
+        .dev { color: #555; font-size: 0.9rem; }
+        a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Lista de productos</h1>
+    <!-- Valor inyectado con @Value en el controlador -->
+    <p class="dev">Desarrollador: <span th:text="${desarrollador}">nombre</span></p>
+
+    <!-- Filtros: cada enlace envía ?categoria=... (@RequestParam) -->
+    <p>
+        Filtrar:
+        <a th:href="@{/productos/lista}">Todas</a>
+        <a th:href="@{/productos/lista(categoria='Computo')}">Computo</a>
+        <a th:href="@{/productos/lista(categoria='Perifericos')}">Perifericos</a>
+    </p>
+    <p th:if="${categoriaFiltro != null and !categoriaFiltro.isBlank()}">
+        Categoría filtrada: <strong th:text="${categoriaFiltro}">-</strong>
+    </p>
+
+    <table>
+        <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Detalle</th></tr>
+        <!-- th:each recorre la lista del Model -->
+        <tr th:each="p : ${productos}">
+            <td th:text="${p.id}">1</td>
+            <td th:text="${p.nombre}">Nombre</td>
+            <td th:text="${#numbers.formatDecimal(p.precio, 1, 'COMMA', 2, 'POINT')}">0.00</td>
+            <td th:text="${p.categoria}">Categoría</td>
+            <td><a th:href="@{/productos/detalle/{id}(id=${p.id})}">Ver</a></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(productos)}">
+            <td colspan="5">No hay productos en esta categoría.</td>
+        </tr>
+    </table>
+
+    <a th:href="@{/productos/nuevo}">+ Agregar producto</a>
+</body>
+</html>

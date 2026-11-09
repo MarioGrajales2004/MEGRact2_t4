@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo producto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        label { display: block; margin-top: 12px; }
+        input { padding: 6px; width: 260px; }
+        button { margin-top: 16px; padding: 8px 18px; }
+        .dev { color: #555; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <h1>Nuevo producto</h1>
+    <p class="dev">Desarrollador: <span th:text="${desarrollador}">nombre</span></p>
+
+    <!-- th:object enlaza el formulario al DTO; th:field enlaza cada campo.
+         Al enviar, @ModelAttribute en el controlador recibe el DTO lleno. -->
+    <form th:action="@{/productos/guardar}" th:object="${productoDTO}" method="post">
+        <label>Nombre
+            <input type="text" th:field="*{nombre}" required>
+        </label>
+        <label>Precio
+            <input type="number" step="0.01" min="0" th:field="*{precio}" required>
+        </label>
+        <label>Categoría
+            <input type="text" th:field="*{categoria}" required>
+        </label>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <p><a th:href="@{/productos/lista}">Volver a la lista</a></p>
+</body>
+</html>

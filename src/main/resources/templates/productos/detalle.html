@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del producto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .dev { color: #555; font-size: 0.9rem; }
+        dt { font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Detalle del producto</h1>
+    <p class="dev">Desarrollador: <span th:text="${desarrollador}">nombre</span></p>
+
+    <!-- El id llegó por la ruta (@PathVariable) -->
+    <dl th:if="${producto != null}">
+        <dt>ID</dt><dd th:text="${producto.id}">1</dd>
+        <dt>Nombre</dt><dd th:text="${producto.nombre}">Nombre</dd>
+        <dt>Precio</dt><dd th:text="${#numbers.formatDecimal(producto.precio, 1, 'COMMA', 2, 'POINT')}">0.00</dd>
+        <dt>Categoría</dt><dd th:text="${producto.categoria}">Categoría</dd>
+    </dl>
+    <p th:if="${producto == null}">El producto solicitado no existe.</p>
+
+    <p><a th:href="@{/productos/lista}">Volver a la lista</a></p>
+</body>
+</html>
